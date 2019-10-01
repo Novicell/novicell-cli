@@ -105,7 +105,9 @@ export const initQuestions: () => Promise<any> = async () => {
 export const createNginxConfig = async (rawPath: string = './config') => {
     const configPath = path.resolve(process.cwd(), rawPath);
 
-    fs.mkdirSync(configPath, {recursive: true});
+    if(!fs.existsSync(configPath) && fs.mkdirSync(configPath)) {
+        fs.mkdirSync(configPath, {recursive: true});
+    }
 
     fs.writeFileSync(path.resolve(process.cwd(), rawPath, 'nginx.conf'), nginxConfig);
 
@@ -115,8 +117,9 @@ export const createNginxConfig = async (rawPath: string = './config') => {
 export const createDockerfile = async (rawPath: string = './') => {
     const configPath = path.resolve(process.cwd(), rawPath);
 
-    fs.mkdirSync(configPath, {recursive: true});
-
+    if(!fs.existsSync(configPath) && fs.mkdirSync(configPath)) {
+        fs.mkdirSync(configPath, {recursive: true});
+    }
     fs.writeFileSync(path.resolve(process.cwd(), rawPath, 'Dockerfile'), dockerFile);
 
     return configPath;
