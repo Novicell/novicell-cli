@@ -11,6 +11,62 @@ To create this we use the following technologies:
 * Express
 * PM2
 
+
+# Usage
+The CLI is meant as an addon to the normal nuxt npx install. The CLI gives your developers an easy way to get started with hosting your application, either in the cloud or on a local machine.
+
+## Installation
+You can either use our NPX command or install the CLI globally in your environment. We recommend the NPX install to make sure that you always have the newest content.
+
+### Prerequisites
+We expect you to have Node.js with NPM or Yarn installed as well as the Docker CLI.
+
+* Node.js
+* NPM / Yarn
+* Docker
+
+
+### Create a new Nuxt application
+First step is to create your Nuxt application. To do this follow the steps in the [official documentation](https://nuxtjs.org/guide/installation), simply run the following command in your terminal:
+
+````bash
+npx create-nuxt-app <project-name>
+````
+
+During the install make sure to select SSR and Express.js as your framework.
+
+### Add hosting configuration
+Now that you have installed your application, you can `cd` into your project folder and run our CLI init command by typing the following in your terminal:
+
+ ````bash
+ novicell init
+ ````
+
+If you are starting from a brand new project, the default configuration should be enough so simply step through it.
+
+### Building the project
+To build the project firstly you must build your Nuxt application. Do this by running the `npm run build` or `yarn build` command in your terminal. 
+
+Once this is done we can build our Docker image that we will deploy to our servers.
+
+```bash
+docker build -t <image-name>:<image-version> .
+```
+
+You can then run it locally to test that everything is working
+
+```bash
+docker run -e NODE_ENV=production -p 3000:80 <image-name>:<image-version>
+```
+
+If everything went as intended you should be able to see your project at localhost:3000
+
+### Pushing to remote
+Depending on where your repository bucket is located you can use the Docker push command to push your image to the cloud and it is now ready for usage.
+
+#About
+Below we describe each of the tools used as well as why and how we use them.
+
 ## Docker
 Docker is a tool designed to make it easier to create, deploy, and run applications by using containers. Containers allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and ship it all out as one package. By doing so, thanks to the container, the developer can rest assured that the application will run on any other Linux machine regardless of any customized settings that machine might have that could differ from the machine used for writing and testing the code.
 
