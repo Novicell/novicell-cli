@@ -1,6 +1,6 @@
 {
-  "name": "novicell-cli",
-  "version": "0.0.3",
+  "name": "@novicell/cli",
+  "version": "0.0.4",
   "description": "A CLI to help developers start up new projects",
   "main": "index.js",
   "scripts": {
@@ -11,11 +11,14 @@
   },
   "author": "",
   "license": "ISC",
+  "private": false,
   "bin": {
     "novicell": "./dist/index.js"
   },
   "files": [
-    "dist/**/*"
+    "dist/**/*",
+    "README.md",
+    "src/**/*"
   ],
   "devDependencies": {
     "@types/figlet": "^1.2.0",

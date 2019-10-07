@@ -97,8 +97,6 @@ export const initQuestions: () => Promise<any> = async () => {
 
     fullAnswers = {...fullAnswers, ...dockerAnswers};
 
-
-
     return fullAnswers;
 };
 

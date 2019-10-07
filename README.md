@@ -39,7 +39,7 @@ During the install make sure to select SSR and Express.js as your framework.
 Now that you have installed your application, you can `cd` into your project folder and run our CLI init command by typing the following in your terminal:
 
 ```bash
-npx novicell-cli init
+npx @novicell/cli init
 ```
 
 or if installed globally
@@ -72,7 +72,7 @@ If everything went as intended you should be able to see your project at localho
 ### Pushing to remote
 Depending on where your repository bucket is located you can use the Docker push command to push your image to the cloud and it is now ready for usage.
 
-#About
+# About
 Below we describe each of the tools used as well as why and how we use them.
 
 ## Docker
