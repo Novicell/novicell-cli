@@ -21,9 +21,9 @@ You can either use our NPX command or install the CLI globally in your environme
 ### Prerequisites
 We expect you to have Node.js with NPM or Yarn installed as well as the Docker CLI.
 
-* Node.js
-* NPM / Yarn
-* Docker
+* Node.js - [Docs](https://nodejs.org/en/)
+* NPM / Yarn - [Docs](https://yarnpkg.com/lang/en/)
+* Docker - [Windows](https://docs.docker.com/docker-for-windows/install/) / [MacOS](https://docs.docker.com/docker-for-mac/install/)
 
 
 ### Create a new Nuxt application
