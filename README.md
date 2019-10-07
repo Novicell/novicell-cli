@@ -38,9 +38,17 @@ During the install make sure to select SSR and Express.js as your framework.
 ### Add hosting configuration
 Now that you have installed your application, you can `cd` into your project folder and run our CLI init command by typing the following in your terminal:
 
+```bash
+npx novicell-cli init
+```
+
+or if installed globally
+
  ````bash
  novicell init
  ````
+
+
 
 If you are starting from a brand new project, the default configuration should be enough so simply step through it.
 
