@@ -33,7 +33,7 @@ First step is to create your Nuxt application. To do this follow the steps in th
 npx create-nuxt-app <project-name>
 ````
 
-During the install make sure to select SSR and Express.js as your framework.
+During the install make sure to select Universal mode and Express.js as your framework.
 
 ### Add hosting configuration
 Now that you have installed your application, you can `cd` into your project folder and run our CLI init command by typing the following in your terminal:
