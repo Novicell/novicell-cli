@@ -1,6 +1,6 @@
-import inquirer from "inquirer";
-import path from "path";
-import * as fs from "fs";
+import inquirer from 'inquirer';
+import path from 'path';
+import * as fs from 'fs';
 
 // @ts-ignore
 import nginxConfig from './resources/nginx.conf';
@@ -9,116 +9,126 @@ import nginxConfig from './resources/nginx.conf';
 import dockerFile from './resources/Dockerfile';
 
 export const deployQuestions: () => Promise<any> = async () => {
-    let fullAnswers = {};
+  let fullAnswers = {};
 
-    const nginxAnswers = await inquirer.prompt({
-        name: "NGINX_CONF_EXISTS",
-        type: "confirm",
-        message: "Do you already have a Nginx config file?",
-        default: false,
-    }).then(async (res: any)  => {
-        let answers = {...res};
+  const nginxAnswers = await inquirer
+    .prompt({
+      name: 'NGINX_CONF_EXISTS',
+      type: 'confirm',
+      message: 'Do you already have a Nginx config file?',
+      default: false,
+    })
+    .then(async (res: any) => {
+      let answers = { ...res };
 
-        if (res.NGINX_CONF_EXISTS) {
-            const answer = await inquirer.prompt({
-                type: "input",
-                name: "NGINX_CONF_PATH",
-                message: "Where is the Nginx config located? (Directory)",
-            });
+      if (res.NGINX_CONF_EXISTS) {
+        const answer = await inquirer.prompt({
+          type: 'input',
+          name: 'NGINX_CONF_PATH',
+          message: 'Where is the Nginx config located? (Directory)',
+        });
 
-            answers = {...answers, ...answer};
-        } else {
-            let answer = await inquirer.prompt({
-                type: "confirm",
-                name: "NGINX_CONF_GENERATE",
-                message: "Should we generate a config file for you?",
-                default: true
-            });
+        answers = { ...answers, ...answer };
+      } else {
+        let answer = await inquirer.prompt({
+          type: 'confirm',
+          name: 'NGINX_CONF_GENERATE',
+          message: 'Should we generate a config file for you?',
+          default: true,
+        });
 
-            answers = {...answers, ...answer};
+        answers = { ...answers, ...answer };
 
-            if(answer.NGINX_CONF_GENERATE) {
-                let pathPrompt = await inquirer.prompt({
-                    type: "input",
-                    name: "NGINX_CONF_PATH",
-                    message: "Where do you want us to put your Nginx config file?",
-                    default: './config'
-                });
+        if (answer.NGINX_CONF_GENERATE) {
+          let pathPrompt = await inquirer.prompt({
+            type: 'input',
+            name: 'NGINX_CONF_PATH',
+            message: 'Where do you want us to put your Nginx config file?',
+            default: './config',
+          });
 
-                answers = {...answers, ...pathPrompt};
-            }
+          answers = { ...answers, ...pathPrompt };
         }
+      }
 
-        return answers;
+      return answers;
     });
 
-    fullAnswers = {...fullAnswers, ...nginxAnswers};
+  fullAnswers = { ...fullAnswers, ...nginxAnswers };
 
-    const dockerAnswers = await inquirer.prompt({
-        name: "DOCKER_CONF_EXISTS",
-        type: "confirm",
-        message: "Do you already have a Dockerfile?",
-        default: false,
-    }).then(async (res: any)  => {
-        let answers = {...res};
+  const dockerAnswers = await inquirer
+    .prompt({
+      name: 'DOCKER_CONF_EXISTS',
+      type: 'confirm',
+      message: 'Do you already have a Dockerfile?',
+      default: false,
+    })
+    .then(async (res: any) => {
+      let answers = { ...res };
 
-        if (res.NGINX_CONF_EXISTS) {
-            const answer = await inquirer.prompt({
-                type: "input",
-                name: "DOCKER_CONF_PATH",
-                message: "Where is the Dockerfile located? (Directory)",
-            });
+      if (res.NGINX_CONF_EXISTS) {
+        const answer = await inquirer.prompt({
+          type: 'input',
+          name: 'DOCKER_CONF_PATH',
+          message: 'Where is the Dockerfile located? (Directory)',
+        });
 
-            answers = {...answers, ...answer};
-        } else {
-            let answer = await inquirer.prompt({
-                type: "confirm",
-                name: "DOCKER_CONF_GENERATE",
-                message: "Should we generate a Dockerfile for you?",
-                default: true
-            });
+        answers = { ...answers, ...answer };
+      } else {
+        let answer = await inquirer.prompt({
+          type: 'confirm',
+          name: 'DOCKER_CONF_GENERATE',
+          message: 'Should we generate a Dockerfile for you?',
+          default: true,
+        });
 
-            answers = {...answers, ...answer};
+        answers = { ...answers, ...answer };
 
-            if(answer.DOCKER_CONF_GENERATE) {
-                let pathPrompt = await inquirer.prompt({
-                    type: "input",
-                    name: "DOCKER_CONF_PATH",
-                    message: "Where do you want us to put your Dockerfile?",
-                    default: './'
-                });
+        if (answer.DOCKER_CONF_GENERATE) {
+          let pathPrompt = await inquirer.prompt({
+            type: 'input',
+            name: 'DOCKER_CONF_PATH',
+            message: 'Where do you want us to put your Dockerfile?',
+            default: './',
+          });
 
-                answers = {...answers, ...pathPrompt};
-            }
+          answers = { ...answers, ...pathPrompt };
         }
+      }
 
-        return answers;
+      return answers;
     });
 
-    fullAnswers = {...fullAnswers, ...dockerAnswers};
+  fullAnswers = { ...fullAnswers, ...dockerAnswers };
 
-    return fullAnswers;
+  return fullAnswers;
 };
 
 export const createNginxConfig = async (rawPath: string = './config') => {
-    const configPath = path.resolve(process.cwd(), rawPath);
+  const configPath = path.resolve(process.cwd(), rawPath);
 
-    if(!fs.existsSync(configPath) && fs.mkdirSync(configPath)) {
-        fs.mkdirSync(configPath, {recursive: true});
-    }
+  if (!fs.existsSync(configPath) && fs.mkdirSync(configPath)) {
+    fs.mkdirSync(configPath, { recursive: true });
+  }
 
-    fs.writeFileSync(path.resolve(process.cwd(), rawPath, 'nginx.conf'), nginxConfig);
+  fs.writeFileSync(
+    path.resolve(process.cwd(), rawPath, 'nginx.conf'),
+    nginxConfig,
+  );
 
-    return configPath;
+  return configPath;
 };
 
 export const createDockerfile = async (rawPath: string = './') => {
-    const configPath = path.resolve(process.cwd(), rawPath);
+  const configPath = path.resolve(process.cwd(), rawPath);
 
-    if(!fs.existsSync(configPath) && fs.mkdirSync(configPath)) {
-        fs.mkdirSync(configPath, {recursive: true});
-    }
-    fs.writeFileSync(path.resolve(process.cwd(), rawPath, 'Dockerfile'), dockerFile);
+  if (!fs.existsSync(configPath) && fs.mkdirSync(configPath)) {
+    fs.mkdirSync(configPath, { recursive: true });
+  }
+  fs.writeFileSync(
+    path.resolve(process.cwd(), rawPath, 'Dockerfile'),
+    dockerFile,
+  );
 
-    return configPath;
+  return configPath;
 };
