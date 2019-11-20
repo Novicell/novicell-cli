@@ -10,8 +10,8 @@ Can either be installed globally or used with NPX
 
 ## Commands
 ```bash
-    npx @novicell/cli add
-    npx @novicell/cli init
+    npx @novicell/cli init # Inits the project with selected options
+    npx @novicell/cli add # Adds selected features to an existing project
 ```
 
 ## Flags
@@ -19,3 +19,6 @@ Can either be installed globally or used with NPX
     # init
         -d, --default: initializes project with default options
 ```
+
+## Extra usage documentation
+[Deploy tools](src/@commands/add/deploy_tools/README.md)
