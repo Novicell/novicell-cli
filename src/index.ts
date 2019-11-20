@@ -1,29 +1,15 @@
-import chalk from "chalk";
 import program from "commander";
-import {createDockerfile, createNginxConfig, deployQuestions} from "./@commands/add/deploy_tools/deploy.functions";
+import {add} from '@commands/add';
 
 program.version('0.0.1');
 
 program.command('add [feature_name]')
     .description('Adds a feature to an existing project')
-    .action(async (feature_name) => {
-        console.log(feature_name);
-        console.log('Create default Nuxt hosting setup:');
-        
-        const answers = await deployQuestions();
+    .action(add)
 
-        if(answers.NGINX_CONF_GENERATE) {
-            // Should create nginx config file
-            const filePath = await createNginxConfig(answers.NGINX_CONF_PATH);
-            console.log(chalk.green`Created Nginx config file in ${filePath}`);
-        }
+program.command('init')
+    .description('Initializes SPA for CMS')
+    .option('-d, --default', 'Default structure declared by Novicell')
 
-        if(answers.DOCKER_CONF_GENERATE) {
-            // Should create nginx config file
-            const filePath = await createDockerfile(answers.DOCKER_CONF_PATH);
-            console.log(chalk.green`Created Dockerfile ${filePath}`);
-        }
-    });
-
-    // Generates default files for a Nuxt SSR setup
+// Generates default files for a Nuxt SSR setup
 program.parse(process.argv);
