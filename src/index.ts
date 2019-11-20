@@ -1,16 +1,16 @@
 import chalk from "chalk";
 import program from "commander";
-import {createDockerfile, createNginxConfig, initQuestions} from "./@features/init/init.functions";
+import {createDockerfile, createNginxConfig, deployQuestions} from "./@commands/add/deploy_tools/deploy.functions";
 
 program.version('0.0.1');
 
-program.command('init')
-    .alias('i')
-    .description('Generates default files for a Nuxt SSR setup')
-    .action(async () => {
+program.command('add [feature_name]')
+    .description('Adds a feature to an existing project')
+    .action(async (feature_name) => {
+        console.log(feature_name);
         console.log('Create default Nuxt hosting setup:');
-
-        const answers = await initQuestions();
+        
+        const answers = await deployQuestions();
 
         if(answers.NGINX_CONF_GENERATE) {
             // Should create nginx config file
@@ -25,4 +25,5 @@ program.command('init')
         }
     });
 
+    // Generates default files for a Nuxt SSR setup
 program.parse(process.argv);

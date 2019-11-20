@@ -8,7 +8,7 @@ import nginxConfig from './resources/nginx.conf';
 // @ts-ignore
 import dockerFile from './resources/Dockerfile';
 
-export const initQuestions: () => Promise<any> = async () => {
+export const deployQuestions: () => Promise<any> = async () => {
     let fullAnswers = {};
 
     const nginxAnswers = await inquirer.prompt({
