@@ -4,9 +4,11 @@ import {didYouMean} from '@utils/index';
 
 const features = {
     deploy: { value: "deploy_tools", description: "Adds NGINX and Dockerfile ready to ship" },
+    component: { value: "component", description: "Add component to a project" },
 };
 
 export const add = (async (feature_name: string) => {
+
     // Deploy Tools
     if (feature_name === features.deploy.value) {
         console.log('Create default Nuxt hosting setup:');
@@ -25,6 +27,10 @@ export const add = (async (feature_name: string) => {
             console.log(chalk.green`Created Dockerfile ${filePath}`);
         }
         return;
+    }
+
+    if (feature_name === features.component.value) {
+        console.log('Add component');
     }
 
     didYouMean(feature_name, features);
