@@ -39,13 +39,13 @@ During the install make sure to select Universal mode and Express.js as your fra
 Now that you have installed your application, you can `cd` into your project folder and run our CLI init command by typing the following in your terminal:
 
 ```bash
-npx @novicell/cli init
+npx @novicell/cli add deploy_tools
 ```
 
 or if installed globally
 
  ````bash
- novicell init
+ novicell add deploy_tools
  ````
 
 
