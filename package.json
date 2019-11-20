@@ -7,7 +7,13 @@
     "dev": "webpack --watch",
     "dev-old": "nodemon -e ts,js --watch 'src' --exec 'tsc'",
     "prepublish": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --write src/**/*.ts"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "author": "",
   "license": "ISC",
@@ -26,9 +32,13 @@
     "@types/node": "^12.7.3",
     "@types/shelljs": "^0.8.5",
     "clean-webpack-plugin": "^3.0.0",
+    "husky": "^3.1.0",
     "nodemon": "^1.19.1",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
     "raw-loader": "^3.1.0",
     "ts-loader": "^6.0.4",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
     "typescript": "^3.6.2",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.6"
