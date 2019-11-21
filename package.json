@@ -44,11 +44,13 @@
     "webpack-cli": "^3.3.6"
   },
   "dependencies": {
+    "@types/string-similarity": "^3.0.0",
     "chalk": "^2.4.2",
     "clear": "^0.1.0",
     "commander": "^3.0.1",
     "figlet": "^1.2.4",
     "inquirer": "^7.0.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "string-similarity": "^3.0.0"
   }
 }
