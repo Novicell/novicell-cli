@@ -7,7 +7,7 @@ import {
 } from '@commands/add/deploy_tools/deploy.functions';
 import { didYouMean } from '@utils/index';
 
-const features: FeatureList = {
+export const add_features: FeatureList = {
   deploy: {
     value: 'deploy_tools',
     description: 'Adds NGINX and Dockerfile ready to ship',
@@ -19,7 +19,7 @@ export const add = async (feature_name: string) => {
   // Deploy Tools
   switch (feature_name) {
     // ADD DEPLOY TOOLS
-    case features.deploy.value:
+    case add_features.deploy.value:
       console.log('Create default Nuxt hosting setup:');
 
       const answers = await deployQuestions();
@@ -37,20 +37,10 @@ export const add = async (feature_name: string) => {
       }
       return;
     // ADD COMPONENT
-    case features.component.value:
+    case add_features.component.value:
       console.log('Add component');
       return;
     default:
-      didYouMean(feature_name, features);
-  }
-};
-
-export const add_opts = () => {
-  console.log('');
-  console.log('Features: ');
-  for (const key in features) {
-    console.log(
-      `${chalk.blueBright(features[key].value)} - ${features[key].description}`,
-    );
+      didYouMean(feature_name, add_features);
   }
 };

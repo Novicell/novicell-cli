@@ -21,3 +21,11 @@ export const initQuestions: () => Promise<any> = async () => {
 
   return fullAnswers;
 };
+
+export const goWithDefault = () => {
+  console.log('go With Default');
+};
+
+export const goWithManual = () => {
+  console.log('go With Manual');
+};

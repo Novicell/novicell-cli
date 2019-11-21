@@ -1,13 +1,14 @@
 import program from 'commander';
-import { add, add_opts } from '@commands/add';
+import { add, add_features } from '@commands/add';
 import { init } from '@commands/init';
+import { showcase_opts } from '@utils/index';
 
 program.version('0.0.1');
 
 program
   .command('add [feature_name]')
   .description('Adds a feature to an existing project')
-  .on('--help', add_opts)
+  .on('--help', () => showcase_opts(add_features))
   .action(add);
 
 program

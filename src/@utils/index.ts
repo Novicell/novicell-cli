@@ -23,5 +23,16 @@ export const didYouMean = (feature_name: string, all_features: FeatureList) => {
         arr_to_search_from[matches.bestMatchIndex].value,
       )} ?`,
     );
+  } else {
+  }
+};
+
+export const showcase_opts = (features: FeatureList) => {
+  console.log('');
+  console.log('Features: ');
+  for (const key in features) {
+    console.log(
+      `${chalk.blueBright(features[key].value)} - ${features[key].description}`,
+    );
   }
 };
