@@ -23,13 +23,3 @@ export const init = async (opts: any) => {
     }
   }
 };
-
-// export const init_opts = () => {
-//   console.log('');
-//   console.log('Features: ');
-//   for (const key in features) {
-//     console.log(
-//       `${chalk.blueBright(features[key].value)} - ${features[key].description}`,
-//     );
-//   }
-// };
