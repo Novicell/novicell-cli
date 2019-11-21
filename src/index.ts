@@ -1,5 +1,6 @@
 import program from 'commander';
 import { add, add_opts } from '@commands/add';
+import { init } from '@commands/init';
 
 program.version('0.0.1');
 
@@ -12,7 +13,12 @@ program
 program
   .command('init')
   .description('Initializes SPA for CMS')
-  .option('-d, --default', 'Default structure declared by Novicell');
+  .option('-d, --default', 'Default structure declared by Novicell')
+  .action(init);
 
-// Generates default files for a Nuxt SSR setup
 program.parse(process.argv);
+
+const NO_COMMAND_SPECIFIED = program.args.length === 0;
+if (NO_COMMAND_SPECIFIED) {
+  program.help();
+}
