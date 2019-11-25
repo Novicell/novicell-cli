@@ -1,10 +1,12 @@
 import chalk from 'chalk';
 import { FeatureList } from '@models/feature.interface';
-import {
-  createDockerfile,
-  createNginxConfig,
-  deployQuestions,
-} from '@commands/add/deploy_tools/deploy.functions';
+import { deployQuestions } from '@commands/add/deploy_tools/deploy.functions';
+// @ts-ignore
+import nginxConfig from './deploy_tools/resources/nginx.conf';
+// @ts-ignore
+import dockerFile from './deploy_tools/resources/Dockerfile';
+// Utils
+import { create_file } from '@utils/index';
 import { didYouMean } from '@utils/index';
 
 export const add_features: FeatureList = {
@@ -26,16 +28,25 @@ export const add = async (feature_name: string) => {
 
       if (answers.NGINX_CONF_GENERATE) {
         // Should create nginx config file
-        const filePath = await createNginxConfig(answers.NGINX_CONF_PATH);
+        const filePath = await create_file(
+          answers.NGINX_CONF_PATH,
+          'nginx.conf',
+          nginxConfig,
+        );
         console.log(chalk.green`Created Nginx config file in ${filePath}`);
       }
 
       if (answers.DOCKER_CONF_GENERATE) {
         // Should create nginx config file
-        const filePath = await createDockerfile(answers.DOCKER_CONF_PATH);
+        const filePath = await create_file(
+          answers.DOCKER_CONF_PATH,
+          'Dockerfile',
+          dockerFile,
+        );
         console.log(chalk.green`Created Dockerfile ${filePath}`);
       }
       return;
+
     // ADD COMPONENT
     case add_features.component.value:
       console.log('Add component');

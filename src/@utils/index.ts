@@ -1,6 +1,8 @@
 import chalk from 'chalk';
 import { Feature, FeatureList } from '@models/feature.interface';
 import stringSimilarity from 'string-similarity';
+import path from 'path';
+import * as fs from 'fs';
 
 export const didYouMean = (feature_name: string, all_features: FeatureList) => {
   let arr_to_search_from = [];
@@ -35,4 +37,24 @@ export const showcase_opts = (features: FeatureList) => {
       `${chalk.blueBright(features[key].value)} - ${features[key].description}`,
     );
   }
+};
+
+export const create_file = async (
+  rawPath: string = './',
+  fileName: string,
+  fileContents: any,
+): Promise<string> => {
+  const configPath = path.resolve(process.cwd(), rawPath);
+
+  if (!fs.existsSync(configPath) && fs.mkdirSync(configPath)) {
+    fs.mkdirSync(configPath, { recursive: true });
+  }
+  console.log(fileContents);
+
+  fs.writeFileSync(
+    path.resolve(process.cwd(), rawPath, fileName),
+    fileContents,
+  );
+
+  return configPath;
 };

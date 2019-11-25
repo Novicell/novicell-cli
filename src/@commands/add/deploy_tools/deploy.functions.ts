@@ -2,12 +2,6 @@ import inquirer from 'inquirer';
 import path from 'path';
 import * as fs from 'fs';
 
-// @ts-ignore
-import nginxConfig from './resources/nginx.conf';
-
-// @ts-ignore
-import dockerFile from './resources/Dockerfile';
-
 export const deployQuestions: () => Promise<any> = async () => {
   let fullAnswers = {};
 
@@ -102,33 +96,4 @@ export const deployQuestions: () => Promise<any> = async () => {
   fullAnswers = { ...fullAnswers, ...dockerAnswers };
 
   return fullAnswers;
-};
-
-export const createNginxConfig = async (rawPath: string = './config') => {
-  const configPath = path.resolve(process.cwd(), rawPath);
-
-  if (!fs.existsSync(configPath) && fs.mkdirSync(configPath)) {
-    fs.mkdirSync(configPath, { recursive: true });
-  }
-
-  fs.writeFileSync(
-    path.resolve(process.cwd(), rawPath, 'nginx.conf'),
-    nginxConfig,
-  );
-
-  return configPath;
-};
-
-export const createDockerfile = async (rawPath: string = './') => {
-  const configPath = path.resolve(process.cwd(), rawPath);
-
-  if (!fs.existsSync(configPath) && fs.mkdirSync(configPath)) {
-    fs.mkdirSync(configPath, { recursive: true });
-  }
-  fs.writeFileSync(
-    path.resolve(process.cwd(), rawPath, 'Dockerfile'),
-    dockerFile,
-  );
-
-  return configPath;
 };
