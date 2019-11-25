@@ -1,11 +1,7 @@
 import chalk from 'chalk';
 import { FeatureList } from '@models/feature.interface';
 import { didYouMean } from '@utils/index';
-import {
-  initQuestions,
-  goWithDefault,
-  goWithManual,
-} from './functionality/init.functions';
+import { initQuestions, goWithDefault, goWithManual } from './functionality/init.functions';
 
 export const init = async (opts: any) => {
   // if -d, --default flag is provided

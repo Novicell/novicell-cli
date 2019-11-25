@@ -28,21 +28,13 @@ export const add = async (feature_name: string) => {
 
       if (answers.NGINX_CONF_GENERATE) {
         // Should create nginx config file
-        const filePath = await create_file(
-          answers.NGINX_CONF_PATH,
-          'nginx.conf',
-          nginxConfig,
-        );
+        const filePath = await create_file(answers.NGINX_CONF_PATH, 'nginx.conf', nginxConfig);
         console.log(chalk.green`Created Nginx config file in ${filePath}`);
       }
 
       if (answers.DOCKER_CONF_GENERATE) {
         // Should create nginx config file
-        const filePath = await create_file(
-          answers.DOCKER_CONF_PATH,
-          'Dockerfile',
-          dockerFile,
-        );
+        const filePath = await create_file(answers.DOCKER_CONF_PATH, 'Dockerfile', dockerFile);
         console.log(chalk.green`Created Dockerfile ${filePath}`);
       }
       return;
