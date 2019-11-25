@@ -8,6 +8,7 @@ import {
 } from './functionality/init.functions';
 
 export const init = async (opts: any) => {
+  // if -d, --default flag is provided
   if (opts.default) {
     goWithDefault();
   } else {

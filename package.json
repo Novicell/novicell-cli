@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "@types/string-similarity": "^3.0.0",
+    "axios": "^0.19.0",
     "chalk": "^2.4.2",
     "clear": "^0.1.0",
     "commander": "^3.0.1",
