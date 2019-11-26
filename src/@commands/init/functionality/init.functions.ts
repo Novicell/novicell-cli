@@ -1,7 +1,8 @@
 import inquirer from 'inquirer';
+import chalk from 'chalk';
 import path from 'path';
 import * as fs from 'fs';
-import axios from 'axios';
+import { create_file } from '@utils/index';
 
 export const initQuestions: () => Promise<any> = async () => {
   let fullAnswers = {};
@@ -24,20 +25,6 @@ export const initQuestions: () => Promise<any> = async () => {
 };
 
 export const goWithDefault = async () => {
-  const { data } = await axios.get(
-    'https://api.github.com/repos/Novicell/frontend-packages/contents/packages/vue/spa-cms-frontend',
-  );
-  const { download_url } = data[0];
-  const file = await axios({
-    method: 'get',
-    url: download_url,
-    responseType: 'stream',
-  });
-
-  file.data.pipe(fs.createWriteStream(process.cwd + '/temp'));
-
-  // console.log(download_url);
-
   console.log('go With Default');
 };
 
