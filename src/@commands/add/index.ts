@@ -28,12 +28,12 @@ export const add = async (feature_name: string) => {
 
       if (answers.NGINX_CONF_GENERATE) {
         // Should create nginx config file
-        const filePath = await create_file(answers.NGINX_CONF_PATH, 'nginx.conf', nginxConfig);
+        await create_file(answers.NGINX_CONF_PATH, 'nginx.conf', nginxConfig);
       }
 
       if (answers.DOCKER_CONF_GENERATE) {
         // Should create nginx config file
-        const filePath = await create_file(answers.DOCKER_CONF_PATH, 'Dockerfile', dockerFile);
+        await create_file(answers.DOCKER_CONF_PATH, 'Dockerfile', dockerFile);
       }
 
       return;

@@ -13,7 +13,7 @@ program
 
 program
   .command('init')
-  .description('Initializes SPA for CMS')
+  .description('Initializes SPA for CMS (init --help)')
   .option('-d, --default', 'Default structure declared by Novicell')
   .action(init);
 

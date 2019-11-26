@@ -85,7 +85,4 @@ export const download_repo_folder = async (link: string, directory: string = '/'
   });
 
   const format_file_data = (name: string, file_data: string) => (path.extname(name) !== '.json' ? file_data : JSON.stringify(file_data, null, 2));
-
-  // console.log(chalk.green`Created Nginx config file in ${filePath}`);
-  // console.log(download_url);
 };
