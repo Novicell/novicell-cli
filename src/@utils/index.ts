@@ -63,7 +63,7 @@ export const download_repo_folder = async (link: string, directory: string = '/'
     type: string;
   };
 
-  const { data }: { data: Array<Sortable> } = await axios.get(link, { headers: { Authorization: 'ankeris:4601d32bbfa14f60003d7f049863d05ff4e04184' } });
+  const { data }: { data: Array<Sortable> } = await axios.get(link);
   data.sort((x, y) => +x.type - +y.type);
   data.forEach(async (item_in_repo: any) => {
     const { download_url, name, type } = item_in_repo;
