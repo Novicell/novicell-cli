@@ -3,7 +3,7 @@ import { add, add_features } from '@commands/add';
 import { init } from '@commands/init';
 import { showcase_opts } from '@utils/index';
 
-program.version('0.0.1');
+program.version('0.1.X');
 
 program
   .command('add [feature_name]')
