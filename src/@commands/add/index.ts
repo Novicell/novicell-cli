@@ -1,13 +1,15 @@
 import chalk from 'chalk';
 import { FeatureList } from '@models/feature.interface';
-import {
-  createDockerfile,
-  createNginxConfig,
-  deployQuestions,
-} from '@commands/add/deploy_tools/deploy.functions';
+import { deployQuestions } from '@commands/add/deploy_tools/deploy.functions';
+// @ts-ignore
+import nginxConfig from './deploy_tools/resources/nginx.conf';
+// @ts-ignore
+import dockerFile from './deploy_tools/resources/Dockerfile';
+// Utils
+import { create_file } from '@utils/index';
 import { didYouMean } from '@utils/index';
 
-const features: FeatureList = {
+export const add_features: FeatureList = {
   deploy: {
     value: 'deploy_tools',
     description: 'Adds NGINX and Dockerfile ready to ship',
@@ -19,38 +21,28 @@ export const add = async (feature_name: string) => {
   // Deploy Tools
   switch (feature_name) {
     // ADD DEPLOY TOOLS
-    case features.deploy.value:
+    case add_features.deploy.value:
       console.log('Create default Nuxt hosting setup:');
 
       const answers = await deployQuestions();
 
       if (answers.NGINX_CONF_GENERATE) {
         // Should create nginx config file
-        const filePath = await createNginxConfig(answers.NGINX_CONF_PATH);
-        console.log(chalk.green`Created Nginx config file in ${filePath}`);
+        await create_file(answers.NGINX_CONF_PATH, 'nginx.conf', nginxConfig);
       }
 
       if (answers.DOCKER_CONF_GENERATE) {
         // Should create nginx config file
-        const filePath = await createDockerfile(answers.DOCKER_CONF_PATH);
-        console.log(chalk.green`Created Dockerfile ${filePath}`);
+        await create_file(answers.DOCKER_CONF_PATH, 'Dockerfile', dockerFile);
       }
+
       return;
+
     // ADD COMPONENT
-    case features.component.value:
+    case add_features.component.value:
       console.log('Add component');
       return;
     default:
-      didYouMean(feature_name, features);
-  }
-};
-
-export const add_opts = () => {
-  console.log('');
-  console.log('Features: ');
-  for (const key in features) {
-    console.log(
-      `${chalk.blueBright(features[key].value)} - ${features[key].description}`,
-    );
+      didYouMean(feature_name, add_features);
   }
 };

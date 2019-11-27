@@ -1,0 +1,48 @@
+/**
+ * Base
+ */
+/* Box sizing */
+
+* {
+  box-sizing: border-box;
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
+
+/* Body */
+
+body {
+  background-color: var(--color-bg);
+  font-family: var(--base-font-family);
+  font-weight: var(--base-font-weight);
+  font-size: var(--base-font-size);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-text);
+  line-height: 1.45;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+/* Vue styling */
+
+[v-cloak] {
+  display: none;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition-property: opacity;
+  transition-timing-function: ease-in-out;
+  transition-duration: 500ms;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
