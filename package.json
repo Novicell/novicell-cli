@@ -19,12 +19,13 @@
   "license": "ISC",
   "private": false,
   "bin": {
-    "novicell": "./dist/index.js"
+    "@novicell/cli": "./dist/index.js"
   },
   "files": [
     "dist/**/*",
     "README.md",
-    "src/**/*"
+    "src/**/*",
+    "resources/**/*"
   ],
   "devDependencies": {
     "@types/figlet": "^1.2.0",
