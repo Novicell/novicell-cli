@@ -29,8 +29,7 @@ export const didYouMean = (feature_name: string, all_features: FeatureList) => {
 };
 
 export const showcase_opts = (features: FeatureList) => {
-  console.log('');
-  console.log('Features: ');
+  console.log('\n Features: ');
   for (const key in features) {
     console.log(`${chalk.blueBright(features[key].value)} - ${features[key].description}`);
   }
