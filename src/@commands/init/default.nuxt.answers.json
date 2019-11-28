@@ -1,0 +1,10 @@
+{
+  "pm": "npm",
+  "ui": "none",
+  "server": "express",
+  "features": ["axios"],
+  "linter": ["eslint"],
+  "test": "none",
+  "mode": "universal",
+  "devTools": []
+}
