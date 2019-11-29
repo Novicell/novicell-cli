@@ -7,8 +7,8 @@ import inquirer from 'inquirer';
 import { create_file } from '@utils/index';
 
 // local
-import default_nuxt_answers from '../default.nuxt.answers.json';
-import optional_nuxt_answers from '../optional.nuxt.answers.json';
+import nuxt_ask_always from '../nuxt.ask.always.json';
+import nuxt_ask_manually from '../nuxt.ask.manually.json';
 
 export const initQuestions: () => Promise<any> = () =>
   inquirer.prompt({
@@ -70,7 +70,8 @@ const setUpNuxt = async (ask_extra: boolean): Promise<any> => {
 };
 
 const setUpNuxtForTesting = async (): Promise<any> => {
-  const merged_answers = { ...optional_nuxt_answers, ...default_nuxt_answers };
+  // Leave no answer for the user
+  const merged_answers = { ...nuxt_ask_always, ...nuxt_ask_manually };
   console.log(merged_answers);
 
   spawn('npx.cmd', ['create-nuxt-app', 'testas', `--answers=${JSON.stringify(merged_answers)}`], { stdio: 'inherit' });
