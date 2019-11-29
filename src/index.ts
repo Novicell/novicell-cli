@@ -2,8 +2,9 @@ import program from 'commander';
 import { add, add_features } from '@commands/add';
 import { init } from '@commands/init';
 import { showcase_opts } from '@utils/index';
+import { version } from '../package.json';
 
-program.version('0.1.X');
+program.version(version);
 
 program
   .command('add [feature_name]')
@@ -15,6 +16,7 @@ program
   .command('init')
   .description('Initializes SPA for CMS (init --help)')
   .option('-d, --default', 'Default structure declared by Novicell')
+  .option('-t, --test', 'ONLY for testing. Mounts Novicell default SPA on newest Nuxt app')
   .action(init);
 
 program.parse(process.argv);
