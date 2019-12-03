@@ -1,4 +1,7 @@
 {
+  "name": "my_project",
+  "description": "My magnificent Nuxt project",
+  "author": "Novicell",
   "pm": "npm",
   "ui": "none",
   "server": "express",
