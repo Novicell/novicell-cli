@@ -5,14 +5,16 @@ import { initQuestions } from './functionality/init.questions';
 
 export const init = async (opts: any) => {
   if (opts.test) {
-    setUpNuxtForTesting();
     // if -t, --test flag is provided
+    setUpNuxtForTesting();
   } else if (opts.default) {
+    // id -d, --default flag is provided
     goWithDefault();
+    // id -m, --manual flag is provided
   } else if (opts.manual) {
     goWithManual();
   } else {
-    // If no flags are given
+    // If NO flags are provided
     const { WHICH_ROUTE } = await initQuestions();
     switch (WHICH_ROUTE) {
       case 'Default setup':
