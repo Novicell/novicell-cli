@@ -1,6 +1,7 @@
 import { FeatureList } from '@models/feature.interface';
 import { didYouMean } from '@utils/index';
-import { initQuestions, goWithDefault, goWithManual, setUpNuxtForTesting } from './functionality/init.functions';
+import { goWithDefault, goWithManual, setUpNuxtForTesting } from './functionality/init.functions';
+import { initQuestions } from './functionality/init.questions';
 
 export const init = async (opts: any) => {
   if (opts.test) {
