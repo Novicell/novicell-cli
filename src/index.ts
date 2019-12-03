@@ -26,6 +26,7 @@ program
   .command(root_commands.init.value)
   .description(root_commands.init.description)
   .option('-d, --default', 'Default structure declared by Novicell')
+  .option('-m, --manual', 'Setup nuxt settings manually')
   .option('-t, --test', 'ONLY for testing. Mounts Novicell default SPA on newest Nuxt app')
   .action(init);
 

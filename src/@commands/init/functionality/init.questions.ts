@@ -37,6 +37,7 @@ export const askNuxtQuestions = async (ask_extra: boolean): Promise<any> => {
     },
   ];
 
+  // for manual setup
   const extra_questions = [
     {
       type: 'input',
