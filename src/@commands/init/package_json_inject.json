@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "dev:server": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "dev": "nuxt"
+  },
+  "dependencies": [
+    "dotenv",
+    "novicell-lazyload",
+    "nuxt-property-decorator",
+    "postcss",
+    "postcss-calc",
+    "postcss-custom-media",
+    "postcss-custom-properties",
+    "postcss-import",
+    "postcss-nested",
+    "postcss-preset-env",
+    "postcss-reporter",
+    "vue-i18n",
+    "vue-property-decorator"
+  ],
+  "devDependencies": ["@nuxt/typescript-build", "@typescript-eslint/eslint-plugin", "@typescript-eslint/parser", "eslint-config-airbnb-base"]
+}
