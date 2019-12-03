@@ -23,6 +23,7 @@ export const didYouMean = (feature_name: string, all_features: FeatureList) => {
       feature_name,
       arr_to_search_from.map(x => x.search_keywords),
     );
+    console.log('You can use --help flag');
     console.log(`Can't find.. Did you mean: ${chalk.blueBright(arr_to_search_from[matches.bestMatchIndex].value)} ?`);
   } else {
   }

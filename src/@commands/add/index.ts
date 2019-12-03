@@ -1,4 +1,5 @@
 import chalk from 'chalk';
+import program from 'commander';
 import { FeatureList } from '@models/feature.interface';
 import { deployQuestions } from '@commands/add/deploy_tools/deploy.functions';
 // @ts-ignore
@@ -6,7 +7,7 @@ import nginxConfig from './deploy_tools/resources/nginx.conf';
 // @ts-ignore
 import dockerFile from './deploy_tools/resources/Dockerfile';
 // Utils
-import { create_file } from '@utils/index';
+import { create_file, showcase_opts } from '@utils/index';
 import { didYouMean } from '@utils/index';
 
 export const add_features: FeatureList = {
@@ -44,5 +45,6 @@ export const add = async (feature_name: string) => {
       return;
     default:
       didYouMean(feature_name, add_features);
+      showcase_opts(add_features);
   }
 };
