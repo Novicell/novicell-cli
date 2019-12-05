@@ -17,6 +17,9 @@ Can either be installed globally or used with NPX
 ```bash
     npx @novicell/cli init # Inits the project with selected options
     npx @novicell/cli add # Adds selected features to an existing project
+    # Or if installed globally
+    novicell-cli init
+    novicell-cli add
 ```
 
 ## Flags
