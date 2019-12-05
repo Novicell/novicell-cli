@@ -37,7 +37,9 @@ export const goWithManual = async () => {
 
 export const setUpNuxtForTesting = () => {
   // Leave no answer for the user
-  return createNuxtAppSync();
+  createNuxtAppSync();
+  injectResources(process.cwd());
+  spawn.sync('npm', ['run', 'build:test'], { stdio: 'inherit', cwd: process.cwd() });
 };
 
 const createNuxtAppSync = (some_answers: any = {}, path: string = './') => {
@@ -45,7 +47,7 @@ const createNuxtAppSync = (some_answers: any = {}, path: string = './') => {
   return spawn.sync('npx', ['create-nuxt-app', path, `--answers=${JSON.stringify(merged_answers)}`], { stdio: 'inherit' });
 };
 
-const createNuxtAppWithInterface = (path: string) => spawn.sync('npx.cmd', ['create-nuxt-app', path], { stdio: 'inherit' });
+const createNuxtAppWithInterface = (path: string) => spawn.sync('npx', ['create-nuxt-app', path], { stdio: 'inherit' });
 
 const injectResources = async (target_dir: string) => {
   // webpack considers __dirname as novicell-cli/dist, therefore:
