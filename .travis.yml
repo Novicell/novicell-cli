@@ -1,9 +1,10 @@
 language: node_js
 node_js:
   - 10.16.0
+before_script:
+  - rm -rf ./test
+  - npm run build
 script:
-  - npm run call:api
+  - npm run initialize:test
 env:
-  - NODE_ENV=development
-  - API_URL=https://headless-spa-mock-api.herokuapp.com
-  - BASE_URL=https://your-subpage-link.dk
+  - NODE_ENV=development API_URL=https://headless-spa-mock-api.herokuapp.com BASE_URL=https://your-subpage-link.dk

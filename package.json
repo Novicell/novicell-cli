@@ -11,8 +11,7 @@
     "prepublish": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prettier": "prettier --write src/**/*.ts",
-    "initialize:test": "node dist/index.js init --test",
-    "call:api": "node callapi.js"
+    "initialize:test": "node dist/index.js init --test"
   },
   "husky": {
     "hooks": {
