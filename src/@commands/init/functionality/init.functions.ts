@@ -40,7 +40,8 @@ export const setUpNuxtForTesting = (): void => {
   const project_path = path.join(process.cwd(), '/test');
   createNuxtAppSync({}, project_path);
   injectResources(project_path);
-  spawn.sync('npm', ['run', 'build:test'], { stdio: 'inherit', cwd: project_path });
+  spawn.sync('npm', ['run', 'build'], { stdio: 'inherit', cwd: project_path });
+  spawn.sync('npm', ['run', 'test'], { stdio: 'inherit', cwd: project_path });
 };
 
 const createNuxtAppSync = (some_answers: any = {}, path: string = './'): void => {

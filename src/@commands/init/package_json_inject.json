@@ -2,7 +2,7 @@
   "scripts": {
     "dev:server": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
     "dev": "nuxt",
-    "build:test": "nuxt build && ava"
+    "test": "ava"
   },
   "dependencies": [
     "dotenv",
