@@ -6,3 +6,7 @@ before_script:
   - npm run build
 script:
   - npm run initialize:test
+env:
+  - NODE_ENV=development
+  - API_URL=https://headless-spa-mock-api.herokuapp.com
+  - BASE_URL=https://your-subpage-link.dk
