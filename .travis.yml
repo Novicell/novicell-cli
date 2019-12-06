@@ -3,7 +3,6 @@ node_js:
   - 10.16.0
 before_script:
   - rm -rf ./test
-  - npm install
   - npm run build
 script:
   - npm run initialize:test
