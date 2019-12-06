@@ -5,10 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack --watch",
+    "build": "webpack",
+    "build:prod": "---script missing---",
     "dev-old": "nodemon -e ts,js --watch 'src' --exec 'tsc'",
     "prepublish": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier": "prettier --write src/**/*.ts"
+    "prettier": "prettier --write src/**/*.ts",
+    "initialize:test": "node dist/index.js init --test"
   },
   "husky": {
     "hooks": {

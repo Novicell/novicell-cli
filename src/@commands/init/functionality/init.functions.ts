@@ -37,8 +37,9 @@ export const goWithManual = async () => {
 
 export const setUpNuxtForTesting = () => {
   // Leave no answer for the user
-  createNuxtAppSync();
-  injectResources(process.cwd());
+  const project_path = path.join(process.cwd(), '/test');
+  createNuxtAppSync(project_path);
+  injectResources(project_path);
   spawn.sync('npm', ['run', 'build:test'], { stdio: 'inherit', cwd: process.cwd() });
 };
 
