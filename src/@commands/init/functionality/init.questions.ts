@@ -38,7 +38,7 @@ export const askNuxtQuestions = async (ask_extra: boolean): Promise<any> => {
   ];
 
   // for manual setup
-  const extra_questions = [
+  const EXTRA_QUESTIONS = [
     {
       type: 'input',
       name: 'INIT_PATH',
@@ -46,7 +46,7 @@ export const askNuxtQuestions = async (ask_extra: boolean): Promise<any> => {
       default: './',
     },
   ];
-  const final_questions = [...mandatory_questions, ...(ask_extra ? extra_questions : [])];
+  const final_questions = [...mandatory_questions, ...(ask_extra ? EXTRA_QUESTIONS : [])];
 
   return inquirer.prompt(final_questions);
 };
