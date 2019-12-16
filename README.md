@@ -6,6 +6,8 @@ Tool that helps frontend developers to initialize SPA or SSR projects faster on 
 
 ## Installation
 
+### Use Node Version `10.16.0` or later.
+
 Can either be installed globally or used with NPX
 
 ```bash
