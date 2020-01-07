@@ -36,7 +36,7 @@ If you're tired of UI's, get job done with flags
     # init
         -d, --default  # Default structure declared by Novicell
         -m, --manual   # Setup nuxt settings manually
-        -t, --test     # ONLY for testing. Mounts Novicell default SPA on newest Nuxt app
+        -t, --test     # ONLY for testing. Mounts Novicell default SPA on the newest Nuxt app
 ```
 
 ## Extra usage documentation
