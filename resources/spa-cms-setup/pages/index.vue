@@ -77,6 +77,10 @@ export default class IndexPage extends Vue {
           href: this.seo.canonical,
         },
       ],
+      htmlAttrs: {
+        lang: this.meta.culture && this.meta.culture.lang ? this.meta.culture.lang : 'en',
+        amp: true,
+      },
       meta: [
         {
           hid: 'description',

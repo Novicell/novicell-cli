@@ -56,6 +56,7 @@ export interface PageMeta {
   redirectUrl?: string; // Used with 301, 302
   path?: string; // Used for setting the navigation active - e.g. -1, 2, 203
   template: string; // FrontPage, TextPage ..
+  culture: Culture;
 }
 
 export interface PageContent {
@@ -109,4 +110,8 @@ export interface GridEditor {
   alias: string;
   column: number;
   viewModel: any;
+}
+
+export interface Culture {
+  lang?: string;
 }
