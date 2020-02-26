@@ -9,7 +9,7 @@ import { Component } from 'nuxt-property-decorator';
 import GridEditorMixin from '~/mixins/GridEditorMixin.vue';
 
 @Component({})
-export default class EfDebug extends GridEditorMixin {
+export default class Debug extends GridEditorMixin {
   // SHOULD BE DELETED - ONLY FOR TESTING PURPOSE
 }
 </script>
