@@ -1,48 +1,48 @@
 export * from './state';
 
-export interface Link {
+export interface I_Link {
   name?: string;
   url?: string;
 }
 
-export interface NavigationItem {
+export interface I_NavigationItem {
   hasChildren: boolean;
   level: number;
   nodeId: number;
-  children: NavigationItem[];
-  link: PageLink;
+  children: I_NavigationItem[];
+  link: I_PageLink;
 }
 
-export interface PageLink extends Link {
+export interface I_PageLink extends I_Link {
   target?: string;
   url: string;
 }
 
-export interface Image {
+export interface I_Image {
   url?: string;
   altText?: string;
   title?: string;
-  focalPoint?: FocalPoint;
+  focalPoint?: I_FocalPoint;
 }
 
-export interface FocalPoint {
+export interface I_FocalPoint {
   top: number;
   left: number;
 }
 
-export interface SocialLink extends PageLink {
-  icon?: Image;
+export interface I_SocialLink extends I_PageLink {
+  icon?: I_Image;
   type: string;
 }
 
-export interface Page {
-  meta?: PageMeta; // Only used in application
-  seo?: PageSeo; // Used in <head>
-  content?: PageContent; // Body
+export interface I_Page {
+  meta?: I_PageMeta; // Only used in application
+  seo?: I_PageSeo; // Used in <head>
+  content?: I_PageContent; // Body
   hero?: any;
 }
 
-export interface PageSeo {
+export interface I_PageSeo {
   title: string;
   description: string;
   keywords: string;
@@ -51,67 +51,67 @@ export interface PageSeo {
   canonical: string;
 }
 
-export interface PageMeta {
+export interface I_PageMeta {
   statusCode?: number; // 200, 301, 302, 404
   redirectUrl?: string; // Used with 301, 302
   path?: string; // Used for setting the navigation active - e.g. -1, 2, 203
   template: string; // FrontPage, TextPage ..
-  culture: Culture;
+  culture: I_Culture;
 }
 
-export interface PageContent {
+export interface I_PageContent {
   grid: any; // depends on CMS
 }
 
-export interface Settings {
-  siteSettings: SiteSettings;
-  siteFooter: SiteFooter;
-  siteHeader: SiteHeader;
+export interface I_Settings {
+  siteSettings: I_SiteSettings;
+  siteFooter: I_SiteFooter;
+  siteHeader: I_SiteHeader;
 }
 
-export interface SiteHeader {
-  navigation?: PageLink[];
+export interface I_SiteHeader {
+  navigation?: I_PageLink[];
 }
 
-export interface SiteFooter {
-  navigation?: PageLink[];
-  secondaryNavigation?: PageLink[];
+export interface I_SiteFooter {
+  navigation?: I_PageLink[];
+  secondaryNavigation?: I_PageLink[];
 }
 
-export interface SiteSettings {
-  brand?: Brand;
-  segments?: PageLink[];
-  legalLinks?: PageLink[];
+export interface I_SiteSettings {
+  brand?: I_Brand;
+  segments?: I_PageLink[];
+  legalLinks?: I_PageLink[];
 }
 
-export interface Navigation {
-  primary?: NavigationItem[];
-  secondary?: PageLink[];
+export interface I_Navigation {
+  primary?: I_NavigationItem[];
+  secondary?: I_PageLink[];
 }
 
-export interface Brand {
-  logo?: Image;
-  logoAlternative?: Image;
+export interface I_Brand {
+  logo?: I_Image;
+  logoAlternative?: I_Image;
 }
 
-export interface ImageSize {
+export interface I_ImageSize {
   windowWidth?: number;
   imageWidth: number;
   imageHeight?: number;
   queryString?: string;
 }
 
-export interface GridRowModel {
+export interface I_GridRowModel {
   config: any;
-  editors: GridEditor[];
+  editors: I_GridEditor[];
 }
 
-export interface GridEditor {
+export interface I_GridEditor {
   alias: string;
   column: number;
   viewModel: any;
 }
 
-export interface Culture {
+export interface I_Culture {
   lang?: string;
 }
