@@ -1,16 +1,16 @@
 <template>
   <div class="hero">
-    <ef-image :image="viewModel.backgroundImage" :is-background="true" />
+    <Image :image="viewModel.backgroundImage" :is-background="true" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator';
-import EfImage from '~/components/common/EfImage.vue';
+import Image from '~/components/common/Image.vue';
 
 @Component({
   components: {
-    EfImage,
+    Image,
   },
 })
 export default class TheHero extends Vue {

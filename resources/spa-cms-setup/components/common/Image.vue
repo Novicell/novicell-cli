@@ -6,7 +6,7 @@ import { ImageSize, Image } from '~/types';
 @Component({
   inheritAttrs: false,
 })
-export default class EfImage extends Vue {
+export default class Image extends Vue {
   staticClass: string = '';
 
   @Prop({

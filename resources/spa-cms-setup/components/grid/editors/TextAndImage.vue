@@ -8,7 +8,7 @@
       <ef-rte :view-model="viewModel" />
     </div>
     <div v-if="viewModel.image" class="text-and-image__image col-xs-12 col-sm-6">
-      <ef-image :image="viewModel.image" :height-ratio="0" />
+      <Image :image="viewModel.image" :height-ratio="0" />
     </div>
   </div>
 </template>
@@ -17,12 +17,12 @@
 import { Component } from 'nuxt-property-decorator';
 import GridEditorMixin from '~/mixins/GridEditorMixin.vue';
 import EfRte from '~/components/grid/editors/EfRte.vue';
-import EfImage from '~/components/common/EfImage.vue';
+import Image from '~/components/common/Image.vue';
 
 @Component({
   components: {
     EfRte,
-    EfImage,
+    Image,
   },
 })
 export default class EfTextAndImage extends GridEditorMixin {}
