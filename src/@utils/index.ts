@@ -53,3 +53,17 @@ export const create_file = async (rawPath: string = './', fileName: string, file
 
   return configPath;
 };
+
+export const createSlug = (str: string) => {
+  return replaceNordicCharacters(str)
+    .replace(/[^a-z0-9_]+/gi, '-')
+    .replace(/^-|-$/g, '')
+    .toLowerCase();
+};
+
+export const replaceNordicCharacters = (str: string) => {
+  str = str.replace(/æ/gi, 'ae');
+  str = str.replace(/ø/gi, 'oe');
+  str = str.replace(/å/gi, 'aa');
+  return str;
+};
