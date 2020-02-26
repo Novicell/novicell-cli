@@ -10,6 +10,7 @@ import chalk from 'chalk';
 import nuxt_default_settings from '../resources/nuxt.default.settings.json';
 import package_json_injectable from '../resources/package_json.inject.json';
 import { choosePath, askNuxtQuestions } from './init.questions';
+import { createSlug } from '@utils/index';
 
 export const goWithDefault = async (): Promise<void> => {
   // const { SET_UP_ENV } = await setUpEnvironmentVars();
@@ -18,7 +19,7 @@ export const goWithDefault = async (): Promise<void> => {
   const MERGED_ANSWERS = {
     ...nuxt_default_settings,
     ...{
-      name: NAME,
+      name: createSlug(NAME),
       description: DESCRIPTION,
       author: AUTHOR,
     },
