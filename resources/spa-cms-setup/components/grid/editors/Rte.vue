@@ -12,7 +12,7 @@ import GridEditorMixin from '~/mixins/GridEditorMixin.vue';
 @Component({
   components: {},
 })
-export default class EfRte extends GridEditorMixin {
+export default class Rte extends GridEditorMixin {
   _links: any;
 
   @Watch('viewModel.text')

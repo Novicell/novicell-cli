@@ -4,7 +4,7 @@ import { VNode, CreateElement } from 'vue';
 import { I_GridEditor } from '~/types';
 
 const components: any = {
-  rte: () => import('~/components/grid/editors/EfRte.vue'),
+  rte: () => import('~/components/grid/editors/Rte.vue'),
   textAndImage: () => import('~/components/grid/editors/EfTextAndImage.vue'),
   shortcuts: () => import('~/components/grid/editors/EfShortcuts.vue'),
   contentSlider: () => import('~/components/grid/editors/Debug.vue'),

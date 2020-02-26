@@ -16,12 +16,12 @@
 <script lang="ts">
 import { Component } from 'nuxt-property-decorator';
 import GridEditorMixin from '~/mixins/GridEditorMixin.vue';
-import EfRte from '~/components/grid/editors/EfRte.vue';
+import Rte from '~/components/grid/editors/Rte.vue';
 import Image from '~/components/common/Image.vue';
 
 @Component({
   components: {
-    EfRte,
+    Rte,
     Image,
   },
 })
