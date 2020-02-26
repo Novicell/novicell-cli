@@ -41,4 +41,4 @@ If you're tired of UI's, get job done with flags
 
 ## Extra usage documentation
 
-[Deploy tools](src/@commands/add/deploy_tools/README.md)
+[Deploy tools](https://github.com/Novicell/novicell-cli/blob/master/src/@commands/add/deploy_tools/README.md)
