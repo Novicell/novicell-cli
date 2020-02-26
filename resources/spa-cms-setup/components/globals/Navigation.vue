@@ -14,12 +14,12 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
-import EfLink from '~/components/common/EfLink.vue';
+import ALink from '~/components/common/ALink.vue';
 import { I_NavigationItem } from '~/types';
 
 @Component({
   components: {
-    EfLink,
+    ALink,
   },
 })
 export default class TheNavigation extends Vue {

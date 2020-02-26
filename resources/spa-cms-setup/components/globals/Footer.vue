@@ -10,18 +10,18 @@
         <div class="col-xs-12 col-md-9">
           <ul>
             <li v-for="item in navigation" :key="item.id">
-              <Link :to="item.url" :blank="item.target">
+              <ALink :to="item.url" :blank="item.target">
                 {{ item.name }}
-              </Link>
+              </ALink>
             </li>
           </ul>
         </div>
         <div class="col-xs-12 col-md-3">
           <ul>
             <li v-for="item in secondaryNavigation" :key="item.id">
-              <Link :to="item.url" :blank="item.target">
+              <ALink :to="item.url" :blank="item.target">
                 {{ item.name }}
-              </Link>
+              </ALink>
             </li>
           </ul>
         </div>
@@ -30,9 +30,9 @@
         <div class="col-xs-12">
           <ul>
             <li v-for="item in legalLinks" :key="item.id">
-              <Link :to="item.url" :blank="item.target">
+              <ALink :to="item.url" :blank="item.target">
                 {{ item.name }}
-              </Link>
+              </ALink>
             </li>
           </ul>
         </div>
@@ -44,12 +44,12 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
 import { I_NavigationItem, I_Link } from '~/types';
-import Link from '~/components/common/Link.vue';
+import ALink from '~/components/common/ALink.vue';
 import EfSegmentList from '~/components/navigation/EfSegmentList.vue';
 
 @Component({
   components: {
-    Link,
+    ALink,
     EfSegmentList,
   },
 })

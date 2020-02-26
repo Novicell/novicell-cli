@@ -12,11 +12,11 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator';
 import { I_Link } from '~/types';
-import EfLink from '~/components/common/EfLink.vue';
+import ALink from '~/components/common/ALink.vue';
 
 @Component({
   components: {
-    EfLink,
+    ALink,
   },
 })
 export default class EfSegmentList extends Vue {
