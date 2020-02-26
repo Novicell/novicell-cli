@@ -1,6 +1,6 @@
 import { Middleware } from '@nuxt/types';
 import { formatPath } from '~/helpers';
-import { Page } from '~/types';
+import { I_Page } from '~/types';
 
 const contentMiddleware: Middleware = async (ctx: any) => {
   // Wrap in a try catch, and throw a 500 if something goes wrong on the request
@@ -10,7 +10,7 @@ const contentMiddleware: Middleware = async (ctx: any) => {
     const path = host + fullPath;
     const url = formatPath(path);
     const req = await ctx.app.$contentApi.getContentByUrl(url);
-    const page: Page = req.data;
+    const page: I_Page = req.data;
     const { meta, content, seo, hero } = page;
 
     if (!meta) {
@@ -27,7 +27,7 @@ const contentMiddleware: Middleware = async (ctx: any) => {
         break;
     }
 
-    const payload: Page = {
+    const payload: I_Page = {
       seo,
       meta,
       content,

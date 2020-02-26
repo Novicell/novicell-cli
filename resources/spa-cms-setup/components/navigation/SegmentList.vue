@@ -11,7 +11,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator';
-import { Link } from '~/types';
+import { I_Link } from '~/types';
 import EfLink from '~/components/common/EfLink.vue';
 
 @Component({
@@ -23,7 +23,7 @@ export default class EfSegmentList extends Vue {
   @Prop({
     default: [],
   })
-  segments!: Link[];
+  segments!: I_Link[];
 }
 </script>
 <style scoped>

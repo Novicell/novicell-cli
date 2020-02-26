@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator';
-import { GridRowModel } from '~/types';
+import { I_GridRowModel } from '~/types';
 import GridColumn from '~/components/grid/GridColumn.vue';
 
 @Component({
@@ -23,7 +23,7 @@ export default class GridRow extends Vue {
   @Prop({
     default: {},
   })
-  row!: GridRowModel;
+  row!: I_GridRowModel;
 
   get columns() {
     return this.row.editors;
