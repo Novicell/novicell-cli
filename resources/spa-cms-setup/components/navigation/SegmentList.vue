@@ -19,7 +19,7 @@ import ALink from '~/components/common/ALink.vue';
     ALink,
   },
 })
-export default class EfSegmentList extends Vue {
+export default class SegmentList extends Vue {
   @Prop({
     default: [],
   })

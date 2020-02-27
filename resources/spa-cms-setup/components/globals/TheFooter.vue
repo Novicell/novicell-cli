@@ -45,12 +45,12 @@
 import { Component, Vue } from 'nuxt-property-decorator';
 import { I_NavigationItem, I_Link } from '~/types';
 import ALink from '~/components/common/ALink.vue';
-import EfSegmentList from '~/components/navigation/EfSegmentList.vue';
+import SegmentList from '~/components/navigation/SegmentList.vue';
 
 @Component({
   components: {
     ALink,
-    EfSegmentList,
+    SegmentList,
   },
 })
 export default class TheFooter extends Vue {
