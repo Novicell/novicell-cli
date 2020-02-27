@@ -7,7 +7,7 @@ import { Component } from 'nuxt-property-decorator';
 import GridEditorMixin from '~/mixins/GridEditorMixin.vue';
 
 @Component({})
-export default class EfShortcuts extends GridEditorMixin {
+export default class Shortcuts extends GridEditorMixin {
   // SHOULD BE DELETED - ONLY FOR TESTING PURPOSE
 }
 </script>
