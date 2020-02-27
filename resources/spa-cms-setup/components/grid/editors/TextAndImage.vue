@@ -25,7 +25,7 @@ import Image from '~/components/common/Image.vue';
     Image,
   },
 })
-export default class EfTextAndImage extends GridEditorMixin {}
+export default class TextAndImage extends GridEditorMixin {}
 </script>
 <style scoped>
 .text-and-image {

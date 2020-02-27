@@ -5,7 +5,7 @@ import { I_GridEditor } from '~/types';
 
 const components: any = {
   rte: () => import('~/components/grid/editors/Rte.vue'),
-  textAndImage: () => import('~/components/grid/editors/EfTextAndImage.vue'),
+  textAndImage: () => import('~/components/grid/editors/TextAndImage.vue'),
   shortcuts: () => import('~/components/grid/editors/Shortcuts.vue'),
   contentSlider: () => import('~/components/grid/editors/Debug.vue'),
   customerCenter: () => import('~/components/grid/editors/Debug.vue'),
