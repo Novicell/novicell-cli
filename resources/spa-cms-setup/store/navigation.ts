@@ -1,53 +1,53 @@
 import { MutationTree, GetterTree, ActionTree } from 'vuex';
-import { I_NavigationState, I_RootState, I_Navigation, I_NavigationItem } from '~/types';
+import { INavigationState, IRootState, INavigation, INavigationItem } from '~/types';
 
-export const state = (): I_NavigationState => ({
+export const state = (): INavigationState => ({
   primary: [],
   secondary: [],
   path: '',
   isOpen: false,
 });
 
-export const mutations: MutationTree<I_NavigationState> = {
-  setPrimaryItems(state: I_NavigationState, items: I_NavigationItem[]): void {
+export const mutations: MutationTree<INavigationState> = {
+  setPrimaryItems(state: INavigationState, items: INavigationItem[]): void {
     state.primary = items;
   },
-  setSecondaryItems(state: I_NavigationState, items: I_NavigationItem[]): void {
+  setSecondaryItems(state: INavigationState, items: INavigationItem[]): void {
     state.secondary = items;
   },
-  setPath(state: I_NavigationState, path: string): void {
+  setPath(state: INavigationState, path: string): void {
     state.path = path;
   },
-  open(state: I_NavigationState): void {
+  open(state: INavigationState): void {
     state.isOpen = true;
   },
-  close(state: I_NavigationState): void {
+  close(state: INavigationState): void {
     state.isOpen = false;
   },
 };
 
-export const getters: GetterTree<I_NavigationState, I_RootState> = {
-  getPrimaryItems(state: I_NavigationState): any[] {
+export const getters: GetterTree<INavigationState, IRootState> = {
+  getPrimaryItems(state: INavigationState): any[] {
     return state.primary || [];
   },
-  getSecondaryItems(state: I_NavigationState): any[] {
+  getSecondaryItems(state: INavigationState): any[] {
     return state.secondary || [];
   },
-  getPath(state: I_NavigationState): string {
+  getPath(state: INavigationState): string {
     return state.path;
   },
-  isOpen(state: I_NavigationState): boolean {
+  isOpen(state: INavigationState): boolean {
     return state.isOpen;
   },
 };
 
-export const actions: ActionTree<I_NavigationState, I_RootState> = {
+export const actions: ActionTree<INavigationState, IRootState> = {
   SET_PATH({ commit }: { commit: any }, { path }: { path: string }) {
     commit('setPath', path);
   },
 
   async FETCH_NAVIGATION({ commit }: { commit: any }, { path }: { path: string }) {
-    const { data }: { data: I_Navigation } = await (this as any).$contentApi.getNavigation(path, 3);
+    const { data }: { data: INavigation } = await (this as any).$contentApi.getNavigation(path, 3);
     commit('setPrimaryItems', data.primary);
     commit('setSecondaryItems', data.secondary);
   },

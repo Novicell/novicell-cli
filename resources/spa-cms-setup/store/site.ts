@@ -1,43 +1,43 @@
 import { MutationTree, GetterTree, ActionTree } from 'vuex';
-import { I_RootState, I_SiteState, I_SiteHeader, I_SiteFooter, I_Settings, I_SiteSettings } from '~/types';
+import { IRootState, ISiteState, ISiteHeader, ISiteFooter, ISettings, ISiteSettings } from '~/types';
 
-export const state = (): I_SiteState => ({
+export const state = (): ISiteState => ({
   footer: {},
   header: {},
   settings: {},
 });
 
-export const mutations: MutationTree<I_SiteState> = {
-  setHeader(state: I_SiteState, header: I_SiteHeader): void {
+export const mutations: MutationTree<ISiteState> = {
+  setHeader(state: ISiteState, header: ISiteHeader): void {
     state.header = header;
   },
-  setFooter(state: I_SiteState, footer: I_SiteFooter): void {
+  setFooter(state: ISiteState, footer: ISiteFooter): void {
     state.footer = footer;
   },
-  setSettings(state: I_SiteState, settings: I_SiteSettings): void {
+  setSettings(state: ISiteState, settings: ISiteSettings): void {
     state.settings = settings;
   },
 };
 
-export const getters: GetterTree<I_SiteState, I_RootState> = {
-  getFooter(state: I_SiteState) {
+export const getters: GetterTree<ISiteState, IRootState> = {
+  getFooter(state: ISiteState) {
     return state.footer;
   },
-  getHeader(state: I_SiteState) {
+  getHeader(state: ISiteState) {
     return state.header;
   },
-  getSegments(state: I_SiteState) {
+  getSegments(state: ISiteState) {
     return state.settings ? state.settings.segments : [];
   },
-  getLegalLinks(state: I_SiteState) {
+  getLegalLinks(state: ISiteState) {
     return state.settings ? state.settings.legalLinks : [];
   },
 };
 
-export const actions: ActionTree<I_SiteState, I_RootState> = {
+export const actions: ActionTree<ISiteState, IRootState> = {
   async FETCH_SETTINGS({ commit }: { commit: any }, { path }: { path: string }) {
     try {
-      const { data }: { data: I_Settings } = await (this as any).$contentApi.getSettings(path);
+      const { data }: { data: ISettings } = await (this as any).$contentApi.getSettings(path);
       commit('setFooter', data.siteFooter);
       commit('setHeader', data.siteHeader);
       commit('setSettings', data.siteSettings);

@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator';
 import { CreateElement, VNode } from 'vue';
-import { I_ImageSize, I_Image } from '~/types';
+import { IImageSize, IImage } from '~/types';
 
 @Component({
   inheritAttrs: false,
@@ -14,7 +14,7 @@ export default class Image extends Vue {
   })
   isBackground!: boolean;
 
-  @Prop() image!: I_Image;
+  @Prop() image!: IImage;
 
   @Prop() heightRatio!: number;
 
@@ -23,7 +23,7 @@ export default class Image extends Vue {
   @Prop({
     default: () => [],
   })
-  sizes!: I_ImageSize[];
+  sizes!: IImageSize[];
 
   public render(h: CreateElement): VNode {
     if (!this.image) {
@@ -112,7 +112,7 @@ export default class Image extends Vue {
 
     const { url } = this.image;
     return this.sizes
-      .reduce((arr: string[], currentValue: I_ImageSize) => {
+      .reduce((arr: string[], currentValue: IImageSize) => {
         const str = `${url}?width=${currentValue.imageWidth} ${currentValue.windowWidth ? `${currentValue.windowWidth}w` : ''}`;
         arr.push(str);
         return arr;

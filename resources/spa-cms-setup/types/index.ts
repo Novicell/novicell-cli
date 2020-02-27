@@ -1,48 +1,48 @@
 export * from './state';
 
-export interface I_Link {
+export interface ILink {
   name?: string;
   url?: string;
 }
 
-export interface I_NavigationItem {
+export interface INavigationItem {
   hasChildren: boolean;
   level: number;
   nodeId: number;
-  children: I_NavigationItem[];
-  link: I_PageLink;
+  children: INavigationItem[];
+  link: IPageLink;
 }
 
-export interface I_PageLink extends I_Link {
+export interface IPageLink extends ILink {
   target?: string;
   url: string;
 }
 
-export interface I_Image {
+export interface IImage {
   url?: string;
   altText?: string;
   title?: string;
-  focalPoint?: I_FocalPoint;
+  focalPoint?: IFocalPoint;
 }
 
-export interface I_FocalPoint {
+export interface IFocalPoint {
   top: number;
   left: number;
 }
 
-export interface I_SocialLink extends I_PageLink {
-  icon?: I_Image;
+export interface ISocialLink extends IPageLink {
+  icon?: IImage;
   type: string;
 }
 
-export interface I_Page {
-  meta?: I_PageMeta; // Only used in application
-  seo?: I_PageSeo; // Used in <head>
-  content?: I_PageContent; // Body
+export interface IPage {
+  meta?: IPageMeta; // Only used in application
+  seo?: IPageSeo; // Used in <head>
+  content?: IPageContent; // Body
   hero?: any;
 }
 
-export interface I_PageSeo {
+export interface IPageSeo {
   title: string;
   description: string;
   keywords: string;
@@ -51,67 +51,67 @@ export interface I_PageSeo {
   canonical: string;
 }
 
-export interface I_PageMeta {
+export interface IPageMeta {
   statusCode?: number; // 200, 301, 302, 404
   redirectUrl?: string; // Used with 301, 302
   path?: string; // Used for setting the navigation active - e.g. -1, 2, 203
   template: string; // FrontPage, TextPage ..
-  culture: I_Culture;
+  culture: ICulture;
 }
 
-export interface I_PageContent {
+export interface IPageContent {
   grid: any; // depends on CMS
 }
 
-export interface I_Settings {
-  siteSettings: I_SiteSettings;
-  siteFooter: I_SiteFooter;
-  siteHeader: I_SiteHeader;
+export interface ISettings {
+  siteSettings: ISiteSettings;
+  siteFooter: ISiteFooter;
+  siteHeader: ISiteHeader;
 }
 
-export interface I_SiteHeader {
-  navigation?: I_PageLink[];
+export interface ISiteHeader {
+  navigation?: IPageLink[];
 }
 
-export interface I_SiteFooter {
-  navigation?: I_PageLink[];
-  secondaryNavigation?: I_PageLink[];
+export interface ISiteFooter {
+  navigation?: IPageLink[];
+  secondaryNavigation?: IPageLink[];
 }
 
-export interface I_SiteSettings {
-  brand?: I_Brand;
-  segments?: I_PageLink[];
-  legalLinks?: I_PageLink[];
+export interface ISiteSettings {
+  brand?: IBrand;
+  segments?: IPageLink[];
+  legalLinks?: IPageLink[];
 }
 
-export interface I_Navigation {
-  primary?: I_NavigationItem[];
-  secondary?: I_PageLink[];
+export interface INavigation {
+  primary?: INavigationItem[];
+  secondary?: IPageLink[];
 }
 
-export interface I_Brand {
-  logo?: I_Image;
-  logoAlternative?: I_Image;
+export interface IBrand {
+  logo?: IImage;
+  logoAlternative?: IImage;
 }
 
-export interface I_ImageSize {
+export interface IImageSize {
   windowWidth?: number;
   imageWidth: number;
   imageHeight?: number;
   queryString?: string;
 }
 
-export interface I_GridRowModel {
+export interface IGridRowModel {
   config: any;
-  editors: I_GridEditor[];
+  editors: IGridEditor[];
 }
 
-export interface I_GridEditor {
+export interface IGridEditor {
   alias: string;
   column: number;
   viewModel: any;
 }
 
-export interface I_Culture {
+export interface ICulture {
   lang?: string;
 }

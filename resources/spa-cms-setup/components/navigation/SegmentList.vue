@@ -11,7 +11,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator';
-import { I_Link } from '~/types';
+import { ILink } from '~/types';
 import ALink from '~/components/common/ALink.vue';
 
 @Component({
@@ -23,7 +23,7 @@ export default class SegmentList extends Vue {
   @Prop({
     default: [],
   })
-  segments!: I_Link[];
+  segments!: ILink[];
 }
 </script>
 <style scoped>

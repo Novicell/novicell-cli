@@ -15,7 +15,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
 import ALink from '~/components/common/ALink.vue';
-import { I_NavigationItem } from '~/types';
+import { INavigationItem } from '~/types';
 
 @Component({
   components: {
@@ -23,7 +23,7 @@ import { I_NavigationItem } from '~/types';
   },
 })
 export default class TheNavigation extends Vue {
-  get navigationItems(): I_NavigationItem[] {
+  get navigationItems(): INavigationItem[] {
     return this.$store.getters['navigation/getItems'];
   }
 }

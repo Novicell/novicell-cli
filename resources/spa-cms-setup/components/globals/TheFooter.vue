@@ -43,7 +43,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
-import { I_NavigationItem, I_Link } from '~/types';
+import { INavigationItem, ILink } from '~/types';
 import ALink from '~/components/common/ALink.vue';
 import SegmentList from '~/components/navigation/SegmentList.vue';
 
@@ -54,19 +54,19 @@ import SegmentList from '~/components/navigation/SegmentList.vue';
   },
 })
 export default class TheFooter extends Vue {
-  get navigation(): I_NavigationItem[] {
+  get navigation(): INavigationItem[] {
     return this.$store.getters['site/getFooter'].navigation;
   }
 
-  get secondaryNavigation(): I_NavigationItem[] {
+  get secondaryNavigation(): INavigationItem[] {
     return this.$store.getters['site/getFooter'].secondaryNavigation;
   }
 
-  get segments(): I_Link[] {
+  get segments(): ILink[] {
     return this.$store.getters['site/getSegments'];
   }
 
-  get legalLinks(): I_Link[] {
+  get legalLinks(): ILink[] {
     return this.$store.getters['site/getLegalLinks'];
   }
 }

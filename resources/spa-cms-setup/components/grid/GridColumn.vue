@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator';
 import { VNode, CreateElement } from 'vue';
-import { I_GridEditor } from '~/types';
+import { IGridEditor } from '~/types';
 
 const components: any = {
   rte: () => import('~/components/grid/editors/Rte.vue'),
@@ -22,7 +22,7 @@ export default class GridColumn extends Vue {
   @Prop({
     default: {},
   })
-  column!: I_GridEditor;
+  column!: IGridEditor;
 
   get viewModel() {
     return this.column.viewModel;
