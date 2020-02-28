@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
 import { CreateElement, VNode } from 'vue';
-import { PageMeta, PageContent, PageSeo } from '../types';
+import { IPageMeta, IPageContent, IPageSeo } from '~/types';
 import TheHero from '~/components/globals/TheHero.vue';
 
 const templates: any = {
@@ -17,11 +17,11 @@ const templates: any = {
   middleware: ['content'],
 })
 export default class IndexPage extends Vue {
-  meta!: PageMeta;
+  meta!: IPageMeta;
 
-  content!: PageContent;
+  content!: IPageContent;
 
-  seo!: PageSeo;
+  seo!: IPageSeo;
 
   hero!: any;
 

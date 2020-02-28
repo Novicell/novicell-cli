@@ -5,7 +5,7 @@ import { CreateElement, VNode } from 'vue';
 @Component({
   components: {},
 })
-export default class EfLink extends Vue {
+export default class Link extends Vue {
   @Prop() to!: string;
 
   @Prop() name!: string;

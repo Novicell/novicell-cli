@@ -1,16 +1,16 @@
-import { NavigationItem, SiteHeader, SiteFooter, SiteSettings } from '.';
+import { INavigationItem, ISiteHeader, ISiteFooter, ISiteSettings } from '.';
 
-export interface RootState {}
+export interface IRootState {}
 
-export interface NavigationState {
-  primary: NavigationItem[];
-  secondary: NavigationItem[];
+export interface INavigationState {
+  primary: INavigationItem[];
+  secondary: INavigationItem[];
   path: string;
   isOpen: boolean;
 }
 
-export interface SiteState {
-  settings?: SiteSettings;
-  header?: SiteHeader;
-  footer?: SiteFooter;
+export interface ISiteState {
+  settings?: ISiteSettings;
+  header?: ISiteHeader;
+  footer?: ISiteFooter;
 }

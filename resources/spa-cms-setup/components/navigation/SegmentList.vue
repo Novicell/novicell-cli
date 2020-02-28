@@ -11,19 +11,19 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator';
-import { Link } from '~/types';
-import EfLink from '~/components/common/EfLink.vue';
+import { ILink } from '~/types';
+import ALink from '~/components/common/ALink.vue';
 
 @Component({
   components: {
-    EfLink,
+    ALink,
   },
 })
-export default class EfSegmentList extends Vue {
+export default class SegmentList extends Vue {
   @Prop({
     default: [],
   })
-  segments!: Link[];
+  segments!: ILink[];
 }
 </script>
 <style scoped>

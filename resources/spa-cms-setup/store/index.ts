@@ -1,11 +1,11 @@
 import { MutationTree, ActionTree } from 'vuex';
-import { RootState } from '~/types';
+import { IRootState } from '~/types';
 
-export const state = (): RootState => ({});
+export const state = (): IRootState => ({});
 
-export const mutations: MutationTree<RootState> = {};
+export const mutations: MutationTree<IRootState> = {};
 
-export const actions: ActionTree<RootState, RootState> = {
+export const actions: ActionTree<IRootState, IRootState> = {
   async nuxtServerInit({ dispatch }: { dispatch: any }, ctx) {
     const path = `${ctx.env.baseUrl}/`;
     console.log(path);

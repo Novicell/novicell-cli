@@ -10,18 +10,18 @@
         <div class="col-xs-12 col-md-9">
           <ul>
             <li v-for="item in navigation" :key="item.id">
-              <ef-link :to="item.url" :blank="item.target">
+              <ALink :to="item.url" :blank="item.target">
                 {{ item.name }}
-              </ef-link>
+              </ALink>
             </li>
           </ul>
         </div>
         <div class="col-xs-12 col-md-3">
           <ul>
             <li v-for="item in secondaryNavigation" :key="item.id">
-              <ef-link :to="item.url" :blank="item.target">
+              <ALink :to="item.url" :blank="item.target">
                 {{ item.name }}
-              </ef-link>
+              </ALink>
             </li>
           </ul>
         </div>
@@ -30,9 +30,9 @@
         <div class="col-xs-12">
           <ul>
             <li v-for="item in legalLinks" :key="item.id">
-              <ef-link :to="item.url" :blank="item.target">
+              <ALink :to="item.url" :blank="item.target">
                 {{ item.name }}
-              </ef-link>
+              </ALink>
             </li>
           </ul>
         </div>
@@ -43,30 +43,30 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
-import { NavigationItem, Link } from '~/types';
-import EfLink from '~/components/common/EfLink.vue';
-import EfSegmentList from '~/components/navigation/EfSegmentList.vue';
+import { INavigationItem, ILink } from '~/types';
+import ALink from '~/components/common/ALink.vue';
+import SegmentList from '~/components/navigation/SegmentList.vue';
 
 @Component({
   components: {
-    EfLink,
-    EfSegmentList,
+    ALink,
+    SegmentList,
   },
 })
 export default class TheFooter extends Vue {
-  get navigation(): NavigationItem[] {
+  get navigation(): INavigationItem[] {
     return this.$store.getters['site/getFooter'].navigation;
   }
 
-  get secondaryNavigation(): NavigationItem[] {
+  get secondaryNavigation(): INavigationItem[] {
     return this.$store.getters['site/getFooter'].secondaryNavigation;
   }
 
-  get segments(): Link[] {
+  get segments(): ILink[] {
     return this.$store.getters['site/getSegments'];
   }
 
-  get legalLinks(): Link[] {
+  get legalLinks(): ILink[] {
     return this.$store.getters['site/getLegalLinks'];
   }
 }

@@ -16,12 +16,12 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator';
-import EfLink from '~/components/common/EfLink.vue';
+import ALink from '~/components/common/ALink.vue';
 import GridRow from '~/components/grid/GridRow.vue';
 
 @Component({
   components: {
-    EfLink,
+    ALink,
     GridRow,
   },
 })

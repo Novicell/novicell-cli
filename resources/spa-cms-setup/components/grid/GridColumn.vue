@@ -1,18 +1,18 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator';
 import { VNode, CreateElement } from 'vue';
-import { GridEditor } from '~/types';
+import { IGridEditor } from '~/types';
 
 const components: any = {
-  rte: () => import('~/components/grid/editors/EfRte.vue'),
-  textAndImage: () => import('~/components/grid/editors/EfTextAndImage.vue'),
-  shortcuts: () => import('~/components/grid/editors/EfShortcuts.vue'),
-  contentSlider: () => import('~/components/grid/editors/EfDebug.vue'),
-  customerCenter: () => import('~/components/grid/editors/EfDebug.vue'),
-  iconLinks: () => import('~/components/grid/editors/EfDebug.vue'),
-  newsList: () => import('~/components/grid/editors/EfDebug.vue'),
-  productHighlight: () => import('~/components/grid/editors/EfDebug.vue'),
-  productList: () => import('~/components/grid/editors/EfDebug.vue'),
+  rte: () => import('~/components/grid/editors/Rte.vue'),
+  textAndImage: () => import('~/components/grid/editors/TextAndImage.vue'),
+  shortcuts: () => import('~/components/grid/editors/Shortcuts.vue'),
+  contentSlider: () => import('~/components/grid/editors/Debug.vue'),
+  customerCenter: () => import('~/components/grid/editors/Debug.vue'),
+  iconLinks: () => import('~/components/grid/editors/Debug.vue'),
+  newsList: () => import('~/components/grid/editors/Debug.vue'),
+  productHighlight: () => import('~/components/grid/editors/Debug.vue'),
+  productList: () => import('~/components/grid/editors/Debug.vue'),
 };
 
 @Component({
@@ -22,7 +22,7 @@ export default class GridColumn extends Vue {
   @Prop({
     default: {},
   })
-  column!: GridEditor;
+  column!: IGridEditor;
 
   get viewModel() {
     return this.column.viewModel;
