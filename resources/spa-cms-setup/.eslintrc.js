@@ -15,7 +15,7 @@ module.exports = {
     'class-methods-use-this': 0,
     'max-len': [
       'error',
-      150,
+      170,
       1,
       {
         ignoreUrls: true,
@@ -26,5 +26,6 @@ module.exports = {
       },
     ],
     'vue/no-v-html': 'off',
+    'import/extensions': 'off',
   },
 };

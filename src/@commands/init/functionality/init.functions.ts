@@ -34,6 +34,7 @@ export const goWithManual = async (): Promise<void> => {
   const { INIT_PATH } = await choosePath();
   const PROJECT_PATH = path.join(process.cwd(), INIT_PATH);
   createNuxtAppWithInterface(PROJECT_PATH);
+  injectResources(PROJECT_PATH);
 };
 
 export const setUpNuxtForTesting = (): void => {
