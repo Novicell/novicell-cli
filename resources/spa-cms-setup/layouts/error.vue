@@ -25,7 +25,7 @@ import GridRow from '~/components/grid/GridRow.vue';
     GridRow,
   },
 })
-export default class ErrorLayout extends Vue {
+class ErrorLayout extends Vue {
   @Prop() error!: any;
 
   get statusCode() {
@@ -50,6 +50,8 @@ export default class ErrorLayout extends Vue {
     };
   }
 }
+
+export default ErrorLayout;
 </script>
 
 <style scoped>

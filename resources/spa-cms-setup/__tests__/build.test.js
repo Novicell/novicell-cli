@@ -8,20 +8,18 @@ let nuxt = null;
 let link = null;
 
 test.before(async () => {
-  console.log('Running Unit Tests...');
-  const config = require('../nuxt.config.js');
+  const config = require('../nuxt.config.js'); // eslint-disable-line
   config.dev = false;
   nuxt = new Nuxt(config);
   const { host, port } = nuxt.options.server;
   link = `http://${host}:${port}`;
   await nuxt.ready();
   await nuxt.server.listen(port, host);
-  console.log(`Server listening on ${link}`);
 }, 30000);
 
 test('API responds with 200', async t => {
   const { status } = await axios.get(link);
-  t.true(status == 200);
+  t.true(status === 200);
 });
 
 test('Route "/" exits and render HTML', async t => {
@@ -42,4 +40,4 @@ test('Route "/" exits and renders HERO element', async t => {
 });
 
 // Close server and ask nuxt to stop listening to file changes
-test.after('Closing server and nuxt.js', t => nuxt.close());
+test.after('Closing server and nuxt.js', () => nuxt.close());
