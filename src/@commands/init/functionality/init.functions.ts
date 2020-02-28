@@ -65,6 +65,7 @@ const injectResources = async (target_dir: string): Promise<void | Error> => {
     const TARGET_PACKAGE_JSON_DATA = readJsonSync(TARGET_PACKAGE_JSON_PATH);
     const MERGED_SCRIPTS = { ...TARGET_PACKAGE_JSON_DATA.scripts, ...package_json_injectable.scripts };
     writeJsonSync(path.join(target_dir + '/package.json'), { ...TARGET_PACKAGE_JSON_DATA, scripts: MERGED_SCRIPTS }, { replacer: null, spaces: 4 });
+    spawn.sync('npm', ['run', 'lint', '--', '--fix'], { stdio: 'inherit', cwd: target_dir });
     console.log(chalk.green('Successfully ') + 'injected SPA+CMS setup to your working dir.');
   } catch (error) {
     return error;
