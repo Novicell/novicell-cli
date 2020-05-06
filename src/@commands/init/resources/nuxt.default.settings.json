@@ -6,6 +6,7 @@
   "ui": "none",
   "server": "express",
   "features": ["axios"],
+  "language": "ts",
   "linter": ["eslint"],
   "test": "none",
   "mode": "universal",

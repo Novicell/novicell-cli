@@ -5,7 +5,7 @@ module.exports = {
   },
   extends: ['@nuxtjs', 'airbnb-base'],
   rules: {
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': 'warn',
     'linebreak-style': 0,
     'import/no-unresolved': 0,
     'import/no-extraneous-dependencies': 0,
